@@ -7,10 +7,9 @@ pipeline {
         }
     }
     stages {
-        stage('remove proxy in npm') { 
+        stage('install npm') { 
             steps {
-                sh 'npm config rm proxy'
-                sh 'npm config rm https-proxy --tried removing npm proxy'
+                sh 'npm cache clean –force'
                 sh 'npm install' 
             }
         }
