@@ -4,7 +4,7 @@ pipeline {
             image 'node:16-buster-slim'
             args '-p 3000:3000'
         }
-        
+
     }
     stages {
         stage('Build') {
@@ -20,7 +20,7 @@ pipeline {
         stage('Deploy') { 
             steps {
                 sh './jenkins/scripts/deliver.sh' 
-                input message: 'Sudah selesai menggunakan React App? (Klik "Proceed" untuk mengakhiri)' 
+                sleep 1m
                 sh './jenkins/scripts/kill.sh' 
             }
         }
